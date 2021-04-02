@@ -14,9 +14,15 @@ require "action_view"
 #  updated_at  :datetime         not null
 #
 class Cat < ApplicationRecord
+
     include ActionView::Helpers::DateHelper
+
+    validates :color, inclusion: { in: %w(black gold orange white yellow) }
+    validates :sex, inclusion: { in: %w(m f) }
+
+
     def age
-        print time_ago_in_words(birth_date)
+        time_ago_in_words(birth_date)
     end
 
 end
