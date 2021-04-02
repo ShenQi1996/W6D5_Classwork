@@ -1,7 +1,7 @@
 class CatsController < ApplicationController
 
     def index
-        @c = Cat.all#.includes(:name)
+        @c = Cat.all
         render :index
     end
 
@@ -9,6 +9,23 @@ class CatsController < ApplicationController
     def show
         @c = Cat.find(params[:id])
         render :show
+    end
+
+    def new
+        @c = Cat.new
+        render :new
+    end
+
+
+    def create
+        @c = Cat.new(cat_params)
+
+        if @c.save
+            redirect_to cats_url
+        else
+            render json: @c.errors.full_message, status: 422
+        end
+
     end
 
 

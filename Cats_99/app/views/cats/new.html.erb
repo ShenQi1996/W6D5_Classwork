@@ -1,0 +1,20 @@
+<h1>Birth a Kitten</h1>
+
+<form action="<%= cats_url %>" method="post">
+    <label>Name
+        <input type="text" name="cat[name]" value="<%= @c.name %>">
+    </label>
+    <br>
+    <label>Gender
+           <input type="radio" id="male" name="cat[sex]" value="<%= @c.sex %>">
+           <label for="male">m</label>
+           <input type="radio" id="female" name="cat[sex]" value="<%= @c.sex %>">
+           <label for="female">f</label><br>
+    </label>
+
+
+    
+
+
+    <input type="submit" value="birth a kitten">
+</form>
